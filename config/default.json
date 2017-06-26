@@ -5,5 +5,31 @@
   "paginate": {
     "default": 10,
     "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/redyellowgreen_api",
+  "authentication": {
+    "secret": "61c789f65e3c68a791d4232588111e74c4b531f6f8869c23b6e6f5d84d8ec0da6d906727eafed6858692469931926e4a8a6d357ab44278db02fad03e8fcd9e20a2a7aa169943a0a77b59c489ea5dfa078657664dec5124322fd8e4890b2e5f8a5de9c4ddbcbb0fd594321e8d60e85a5ddc64fb1e1466af635c3f976bdcfe723e250760064b550c88667955c63057f94809f24f0286683609ca143ca5787cc482972ac9b9d23c1fc150bd724faead7121eed6b72afa0d05dab13794a6a9341fe1a7fdff999f021723972f7b57a0dcc3d4a0c542173e3156686ada88ced24ebfb6938df8bfbd1bb773835c0bdea04a0a153aceaac9ddda84d9838c54dc99f5b326",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "service": "users",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
   }
 }
