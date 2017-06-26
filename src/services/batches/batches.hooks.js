@@ -1,18 +1,49 @@
+const { authenticate } = require('feathers-authentication').hooks;
+const { restrictToOwner, associateCurrentUser, restrictToAuthenticated } = require('feathers-authentication-hooks');
+const { populate } = require('feathers-hooks-common');
 
+const teacherSchema = {
+  include: {
+    service: 'users',
+    nameAs: 'author',
+    parentField: 'userId',
+    childField: '_id'
+  }
+};
+
+const restrict = [
+  authenticate('jwt'),
+  restrictToAuthenticated(),
+  restrictToOwner({
+    ownerField: 'userId'
+  })
+];
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: []
+    create: [
+      authenticate('jwt'),
+      restrictToAuthenticated(),
+      associateCurrentUser({ as: 'userId' }),
+    ],
+    update: [
+      ...restrict
+    ],
+    patch: [
+      ...restrict
+    ],
+    remove: [
+      ...restrict
+    ]
   },
 
   after: {
-    all: [],
+    all: [
+      populate({ schema: teacherSchema }),
+    ],
     find: [],
     get: [],
     create: [],
