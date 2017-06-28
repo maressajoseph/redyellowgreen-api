@@ -21,6 +21,8 @@ const restrict = [
 
 const createBatch = require('../../hooks/create-batch');
 
+const addStudent = require('../../hooks/add-student');
+
 module.exports = {
   before: {
     all: [],
@@ -32,12 +34,8 @@ module.exports = {
       associateCurrentUser({ as: 'userId' }),
       createBatch()
     ],
-    update: [
-      ...restrict
-    ],
-    patch: [
-      ...restrict
-    ],
+    update: [ addStudent()],
+    patch: [ addStudent()],
     remove: [
       ...restrict
     ]
