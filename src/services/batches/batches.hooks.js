@@ -23,6 +23,8 @@ const createBatch = require('../../hooks/create-batch');
 
 const addStudent = require('../../hooks/add-student');
 
+const addEvaluation = require('../../hooks/add-evaluation');
+
 module.exports = {
   before: {
     all: [],
@@ -34,8 +36,8 @@ module.exports = {
       associateCurrentUser({ as: 'userId' }),
       createBatch()
     ],
-    update: [ addStudent()],
-    patch: [ addStudent()],
+    update: [addStudent(), addEvaluation()],
+    patch: [addStudent(), addEvaluation()],
     remove: [
       ...restrict
     ]

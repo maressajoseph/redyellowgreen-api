@@ -22,6 +22,10 @@ const batches = [{
         color: "Red",
         remark: "Step up your game yo",
         day: new Date(2017, 06, 26)
+      },{
+        color: "Green",
+        remark: "Good job",
+        day: new Date(2017, 06, 28)  
       }]
     },
     {
@@ -40,6 +44,10 @@ const batches = [{
         color: "Green",
         remark: "Good job",
         day: new Date(2017, 06, 26)
+      },{
+        color: "Yellow",
+        remark: "Meh..",
+        day: new Date(2017, 06, 28)
       }]
     }
   ]
