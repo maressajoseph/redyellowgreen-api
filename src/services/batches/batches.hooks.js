@@ -19,6 +19,8 @@ const restrict = [
   })
 ];
 
+const createBatch = require('../../hooks/create-batch');
+
 module.exports = {
   before: {
     all: [],
@@ -28,6 +30,7 @@ module.exports = {
       authenticate('jwt'),
       restrictToAuthenticated(),
       associateCurrentUser({ as: 'userId' }),
+      createBatch()
     ],
     update: [
       ...restrict
