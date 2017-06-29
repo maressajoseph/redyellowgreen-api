@@ -9,8 +9,6 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
 
     const { user } = hook.params
 
-    console.log(hook)
-
     hook.data.userId = user._id,
     hook.data.number = hook.data.number
     hook.data.starts = hook.data.starts
