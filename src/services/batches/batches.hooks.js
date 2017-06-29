@@ -21,6 +21,12 @@ const restrict = [
 
 const createBatch = require('../../hooks/create-batch');
 
+const addStudent = require('../../hooks/add-student');
+
+const addEvaluation = require('../../hooks/add-evaluation');
+
+const deleteStudent = require('../../hooks/delete-student');
+
 module.exports = {
   before: {
     all: [],
@@ -32,21 +38,15 @@ module.exports = {
       associateCurrentUser({ as: 'userId' }),
       createBatch()
     ],
-    update: [
-      ...restrict
-    ],
-    patch: [
-      ...restrict
-    ],
+    update: [addStudent(), addEvaluation(), deleteStudent()],
+    patch: [addStudent(), addEvaluation(), deleteStudent()],
     remove: [
       ...restrict
     ]
   },
 
   after: {
-    all: [
-      populate({ schema: teacherSchema }),
-    ],
+    all: [],
     find: [],
     get: [],
     create: [],

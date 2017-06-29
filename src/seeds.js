@@ -17,29 +17,37 @@ const batches = [{
   students: [
     {
       name: "Jesse Borm",
-      photo: "https://www.google.nl/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiDmNCg59vUAhWMY1AKHZEfDPIQjRwIBw&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F416338%2Faccount_friend_person_profile_silhouette_user_icon&psig=AFQjCNH3pOhnZkGarbad8oeGmryfFMxgDQ&ust=1498576663192453",
+      photo: "https://openclipart.org/image/2400px/svg_to_png/202776/pawn.png",
       evaluation: [{
         color: "Red",
         remark: "Step up your game yo",
         day: new Date(2017, 06, 26)
+      },{
+        color: "Green",
+        remark: "Good job",
+        day: new Date(2017, 06, 28)  
       }]
     },
     {
       name: "Han Kortekaas",
-      photo: "https://www.google.nl/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiDmNCg59vUAhWMY1AKHZEfDPIQjRwIBw&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F416338%2Faccount_friend_person_profile_silhouette_user_icon&psig=AFQjCNH3pOhnZkGarbad8oeGmryfFMxgDQ&ust=1498576663192453",
+      photo: "https://openclipart.org/image/2400px/svg_to_png/202776/pawn.png",
       evaluation: [{
-        color: "Red",
-        remark: "Step up your game yo",
+        color: "Yellow",
+        remark: "Meeeh..",
         day: new Date(2017, 06, 26)
       }]
     },
     {
       name: "Steve Galili",
-      photo: "https://www.google.nl/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiDmNCg59vUAhWMY1AKHZEfDPIQjRwIBw&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F416338%2Faccount_friend_person_profile_silhouette_user_icon&psig=AFQjCNH3pOhnZkGarbad8oeGmryfFMxgDQ&ust=1498576663192453",
+      photo: "https://openclipart.org/image/2400px/svg_to_png/202776/pawn.png",
       evaluation: [{
-        color: "Red",
-        remark: "Step up your game yo",
+        color: "Green",
+        remark: "Good job",
         day: new Date(2017, 06, 26)
+      },{
+        color: "Yellow",
+        remark: "Meh..",
+        day: new Date(2017, 06, 28)
       }]
     }
   ]
