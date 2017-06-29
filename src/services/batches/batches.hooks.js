@@ -29,6 +29,8 @@ const deleteStudent = require('../../hooks/delete-student');
 
 const editStudent = require('../../hooks/edit-student');
 
+const editEvaluation = require('../../hooks/edit-evaluation');
+
 module.exports = {
   before: {
     all: [],
@@ -40,8 +42,20 @@ module.exports = {
       associateCurrentUser({ as: 'userId' }),
       createBatch()
     ],
-    update: [addStudent(), addEvaluation(), deleteStudent(), editStudent()],
-    patch: [addStudent(), addEvaluation(), deleteStudent(), editStudent()],
+    update: [
+      addStudent(),
+      addEvaluation(),
+      deleteStudent(),
+      editStudent(),
+      editEvaluation()
+    ],
+    patch: [
+      addStudent(),
+      addEvaluation(),
+      deleteStudent(),
+      editStudent(),
+      editEvaluation()
+    ],
     remove: [
       ...restrict
     ]
