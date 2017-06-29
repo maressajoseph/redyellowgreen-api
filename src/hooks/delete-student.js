@@ -5,31 +5,29 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function (hook) {
     // Hooks can either return nothing or a promise
     // that resolves with the `hook` object for asynchronous operations
-
-    if (hook.data.day === undefined) return Promise.resolve(hook);
+    console.log(hook)
 
     const url = hook.params.headers.referer
     const studentid = url.split('/').pop()
 
+    console.log(hook.data)
+
+    if (hook.data.delete === undefined) return Promise.resolve(hook);
+
     return hook.app.service("batches").get(hook.id)
       .then((batch) => {
         const { students } = batch
-        console.log(batch.students)
-        // const student = students.find((s) => (s._id.toString() === studentid))
-        //
-        // const evaluation = student.evaluation
+        const student = students.find((s) => (s._id.toString() === studentid))
 
-        const updatedStudents = students.map((student) => {
-          if (student._id.toString() === studentid) {
-            student.evaluation = student.evaluation.concat(hook.data) }
-          return student
-        })
-        batch.students = updatedStudents
-        console.log(batch.students)
+
+        const filteredStudents = students.filter(s => s._id.toString() !== studentid)
+
+
 
         hook.data = {
-          students: batch.students
-        }
+               students: filteredStudents
+             }
+
 
       })
 
